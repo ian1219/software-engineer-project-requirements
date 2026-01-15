@@ -20,12 +20,10 @@ Route::get('/register', function () {
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
 
 Route::middleware([SessionAuth::class])->group(function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard']);
     Route::resource('employees', EmployeeController::class);
-
     Route::resource('departments', DepartmentController::class);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
