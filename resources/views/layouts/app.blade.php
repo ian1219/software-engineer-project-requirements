@@ -13,7 +13,7 @@
         <a class="navbar-brand fs-3 fw-bold" href="{{ url('/dashboard') }}">
             Home
         </a>
-        <form method="GET" action="{{ route('logout') }}">
+        <form method="POST" action="{{ route('logout') }}">
             @csrf
             <button class="btn btn-danger">Logout</button>
         </form>
